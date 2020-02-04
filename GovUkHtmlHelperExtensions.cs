@@ -291,6 +291,19 @@ namespace GovUkDesignSystem
                 classes,
                 textInputAppendix);
         }
+        public static IHtmlContent GovUkAccordion(
+            this IHtmlHelper htmlHelper,
+            AccordionViewModel accordionViewModel)
+        {
+            return htmlHelper.Partial("/GovUkDesignSystemComponents/Accordion.cshtml", accordionViewModel);
+        }
+
+        public static IHtmlContent GovUkTabs(
+            this IHtmlHelper htmlHelper,
+            TabsViewModel tabsViewModel)
+        {
+            return htmlHelper.Partial("/GovUkDesignSystemComponents/Tabs.cshtml", tabsViewModel);
+        }
 
     }
 }
