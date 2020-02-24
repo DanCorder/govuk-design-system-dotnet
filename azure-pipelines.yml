@@ -6,7 +6,7 @@ variables:
 
 jobs:
 - job: build
-  displayName: 'Build and Create NuGet Package'
+  displayName: 'Build and Publish NuGet Package'
 
   steps: 
   - task: DotNetCoreCLI@2
@@ -30,12 +30,6 @@ jobs:
       projects: '**/*.csproj'
       packDirectory: '$(Build.ArtifactStagingDirectory)/packages/releases'
 
-- job:
-  displayName: 'Publish NuGet Package to Artifacts Feed'
-  dependsOn: 'build'
-  condition: succeeded()
-  
-  steps:
   - task: NuGetCommand@2
     displayName: 'Push NuGet Package'
     inputs:
